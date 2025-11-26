@@ -411,16 +411,10 @@ section h2 {
     padding-bottom: 6rem;
 }
 
-.testimonial-carousel {
-    position: relative;
-}
-
 .testimonial-grid {
     display: grid;
-    grid-auto-flow: column;
-    grid-auto-columns: calc((100% / 3) - 1.333rem);
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     gap: 2rem;
-    transition: transform 0.5s ease-in-out;
 }
 
 .testimonial-item {
@@ -434,33 +428,7 @@ section h2 {
     justify-content: space-between;
 }
 
-.carousel-button {
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    background-color: var(--primary-color);
-    color: white;
-    border: none;
-    border-radius: 50%;
-    width: 50px;
-    height: 50px;
-    font-size: 2rem;
-    cursor: pointer;
-    z-index: 10;
-    transition: background-color 0.3s ease;
-}
 
-.carousel-button:hover {
-    background-color: var(--accent-color);
-}
-
-.carousel-button.prev {
-    left: -25px;
-}
-
-.carousel-button.next {
-    right: -25px;
-}
 
 
 .testimonial-item p {
