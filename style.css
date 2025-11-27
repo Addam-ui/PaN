@@ -36,6 +36,31 @@ body {
     max-width: 1200px;
 }
 
+/* --- Blob Shapes --- */
+.blob {
+    position: absolute;
+    z-index: -1;
+    border-radius: 50%;
+    filter: blur(50px);
+    opacity: 0.15;
+}
+
+.blob-1 {
+    width: 400px;
+    height: 400px;
+    background: #80bfff;
+    top: 100px;
+    left: -100px;
+}
+
+.blob-2 {
+    width: 300px;
+    height: 300px;
+    background: #004080;
+    bottom: 200px;
+    right: -100px;
+}
+
 /* --- Section Divider --- */
 .section-divider {
     border: 0;
@@ -56,16 +81,17 @@ body {
     to { opacity: 1; transform: translateX(0); }
 }
 
-/* --- Header --- */
+/* --- Header (Glassmorphism) --- */
 header {
-    background-color: rgba(255, 255, 255, 0.8);
-    backdrop-filter: blur(15px);
+    background-color: rgba(255, 255, 255, 0.6);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
     padding: 1.5rem 0;
     position: fixed;
     width: 100%;
     top: 0;
     z-index: 1000;
-    box-shadow: 0 5px 25px rgba(0, 0, 0, 0.07);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
     transition: all 0.4s ease;
 }
 
@@ -119,7 +145,7 @@ header nav a:hover::after {
     width: 100%;
 }
 
-/* --- Hero Section --- */
+/* --- Hero Section (Parallax) --- */
 .hero {
     position: relative;
     height: 100vh;
@@ -136,7 +162,7 @@ header nav a:hover::after {
     top: 0;
     left: 0;
     width: 100%;
-    height: 100%;
+    height: 120%;
     background-size: cover;
     background-position: center;
     filter: brightness(0.4);
@@ -162,12 +188,12 @@ header nav a:hover::after {
 
 .hero h1 {
     font-family: var(--heading-font);
-    font-size: 4.5rem;
+    font-size: 5rem;
     margin-bottom: 1.5rem;
 }
 
 .hero p {
-    font-size: 1.3rem;
+    font-size: 1.4rem;
     margin-bottom: 3rem;
 }
 
@@ -186,7 +212,7 @@ header nav a:hover::after {
 }
 
 .btn:hover {
-    transform: translateY(-6px);
+    transform: translateY(-8px) scale(1.05);
     box-shadow: var(--shadow-hover);
 }
 
@@ -209,9 +235,11 @@ section:not(:last-child) {
 section h2 {
     text-align: center;
     margin-bottom: 4rem;
-    font-size: 3rem;
+    font-size: 3.5rem;
     font-family: var(--heading-font);
-    color: var(--primary-color);
+    background: -webkit-linear-gradient(45deg, var(--primary-color), var(--accent-color));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
     text-shadow: 1px 1px 2px rgba(0,0,0,0.05);
 }
 
@@ -425,7 +453,7 @@ section h2 {
     filter: grayscale(0%);
 }
 
-/* --- Testimonials Section --- */
+/* --- Testimonials Section (Compact) --- */
 .testimonials {
     background-color: var(--background-light);
     padding-bottom: 7rem;
@@ -433,15 +461,13 @@ section h2 {
 
 .testimonial-grid {
     display: grid;
-    grid-template-columns: 1fr;
-    gap: 2.5rem;
-    max-width: 800px;
-    margin: 0 auto;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2rem;
 }
 
 .testimonial-item {
     background-color: #fff;
-    padding: 3rem;
+    padding: 2.5rem;
     border-radius: var(--border-radius);
     border-left: 6px solid var(--accent-color);
     box-shadow: 0 18px 50px rgba(0, 0, 0, 0.08);
@@ -452,9 +478,9 @@ section h2 {
 
 .testimonial-item p {
     font-style: italic;
-    margin-bottom: 2.5rem;
-    font-size: 1.15rem;
-    line-height: 1.7;
+    margin-bottom: 2rem;
+    font-size: 1rem;
+    line-height: 1.6;
 }
 
 .testimonial-footer {
@@ -468,8 +494,8 @@ section h2 {
     font-weight: bold;
     color: var(--primary-color);
     font-style: normal;
-    font-size: 1.1rem;
-    margin-bottom: 0.7rem;
+    font-size: 1rem;
+    margin-bottom: 0.5rem;
 }
 
 .testimonial-stars {
@@ -477,7 +503,7 @@ section h2 {
 }
 
 .testimonial-stars .star-icon {
-    font-size: 1.3rem;
+    font-size: 1.2rem;
 }
 
 .testimonial-stars .star-icon.filled {
@@ -614,4 +640,11 @@ footer {
 #back-to-top:hover {
     background-color: var(--accent-color);
     transform: translateY(-6px);
+}
+
+/* --- Responsive --- */
+@media (max-width: 768px) {
+    .testimonial-grid {
+        grid-template-columns: 1fr;
+    }
 }
