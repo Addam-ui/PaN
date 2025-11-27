@@ -88,6 +88,18 @@ body {
     to { opacity: 1; transform: scale(1) translateY(0); }
 }
 
+@keyframes ken-burns {
+    0% {
+        transform: scale(1) translate(0, 0);
+    }
+    50% {
+        transform: scale(1.1) translate(-5px, 5px);
+    }
+    100% {
+        transform: scale(1) translate(0, 0);
+    }
+}
+
 /* --- Header (Glassmorphism) --- */
 header {
     background-color: rgba(255, 255, 255, 0.7); /* Slightly less opaque */
@@ -172,13 +184,11 @@ header nav a:hover::after {
     top: 0;
     left: 0;
     width: 100%;
-    height: 130%; /* Larger for more parallax effect */
+    height: 100%;
     background-size: cover;
     background-position: center;
     filter: brightness(0.35); /* Slightly darker for contrast */
-    animation: fadeIn 1.8s ease-out; /* Longer animation */
-    transform: translateY(var(--parallax-offset, 0)); /* For JS parallax */
-    transition: transform 0.1s linear; /* Smooth parallax */
+    animation: ken-burns 20s ease-in-out infinite; /* Ken Burns effect */
 }
 
 .hero::before {
@@ -480,7 +490,7 @@ section h2 {
 }
 
 .date-item {
-    background: #fff;
+    background: linear-gradient(135deg, #fff, #f9f9f9);
     padding: 2.2rem;
     border-radius: var(--border-radius);
     text-align: center;
@@ -509,7 +519,7 @@ section h2 {
 }
 
 .date-item:hover {
-    transform: perspective(1000px) rotateY(5deg) translateY(-15px); /* 3D tilt */
+    transform: perspective(1000px) rotateY(5deg) translateY(-20px) scale(1.05); /* 3D tilt */
     box-shadow: var(--shadow-hover);
 }
 
